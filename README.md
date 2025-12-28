@@ -11,7 +11,7 @@ Dieses Projekt zeichnet sich durch sauberen Code, eine verbesserte KI und ein mo
 
 ## 📸 Vorschau
 
-*(Füge hier später deinen Screenshot ein: `screenshots/gameplay.png`)*
+![Gameplay Vorschau](screenshots/gameplay.png)
 ---
 
 ## 🚀 Features
