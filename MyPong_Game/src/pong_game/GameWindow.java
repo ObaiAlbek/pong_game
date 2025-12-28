@@ -1,19 +1,21 @@
 package pong_game;
-import javax.swing.*;
+
+import java.awt.Color;
+import javax.swing.JFrame;
 
 public class GameWindow extends JFrame {
 
-	GamePanle game;
+    GamePanel panel;
 
-	GameWindow() {
-		game = new GamePanle();
-		this.add(game);
-		this.setTitle("Pong Game");
-		this.setResizable(false);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.pack();
-		this.setLocationRelativeTo(null);
-		this.setVisible(true);
-	}
-
+    GameWindow() {
+        panel = new GamePanel();
+        this.add(panel);
+        this.setTitle("Neon Pong");
+        this.setResizable(false);
+        this.setBackground(Color.BLACK);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.pack();
+        this.setLocationRelativeTo(null); // Zentriert das Fenster
+        this.setVisible(true);
+    }
 }

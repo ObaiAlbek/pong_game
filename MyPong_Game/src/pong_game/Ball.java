@@ -5,38 +5,43 @@ import java.util.Random;
 
 public class Ball extends Rectangle {
 
-	int yBewegung;
-	int xBewegung;
-	int speed = 4;
-	Random random = new Random();
+    Random random;
+    int xVelocity;
+    int yVelocity;
+    int initialSpeed = 5;
 
-	Ball(int x, int y, int width, int height) {
-		super(x, y, width, height);
-		xBewegung = random.nextInt(10) - 5;
-		if (xBewegung == 0)
-			xBewegung++;
-		xBewegung(xBewegung * speed);
+    Ball(int x, int y, int width, int height) {
+        super(x, y, width, height);
+        random = new Random();
+        
+        // Zufällige Richtung beim Start
+        int randomXDirection = random.nextInt(2);
+        if (randomXDirection == 0)
+            randomXDirection--;
+        setXDirection(randomXDirection * initialSpeed);
 
-	}
+        int randomYDirection = random.nextInt(2);
+        if (randomYDirection == 0)
+            randomYDirection--;
+        setYDirection(randomYDirection * initialSpeed);
+    }
 
-	public void draw(Graphics g) {
-		g.setColor(Color.green);
-		g.fillOval(x, y, width, height);
+    public void setXDirection(int randomXDirection) {
+        xVelocity = randomXDirection;
+    }
 
-	}
+    public void setYDirection(int randomYDirection) {
+        yVelocity = randomYDirection;
+    }
 
-	public void xBewegung(int x) {
-		xBewegung = x;
-	}
+    public void move() {
+        x += xVelocity;
+        y += yVelocity;
+    }
 
-	public void yBewegung(int y) {
-		yBewegung = y;
-	}
-
-	public void move() {
-		x += xBewegung;
-		y += yBewegung;
-
-	}
-
+    public void draw(Graphics g) {
+        Graphics2D g2d = (Graphics2D) g;
+        g2d.setColor(Color.WHITE); // Klassischer weißer Ball oder Neon-Gelb
+        g2d.fillOval(x, y, width, height);
+    }
 }
